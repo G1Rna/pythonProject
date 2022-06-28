@@ -1,0 +1,11 @@
+
+    -创建工程：scrapy startproject xxx
+    -在spiders子目录下创建一个爬虫文件: scrapy genspider spiderName www.xxx.com
+    -执行工程: scrapy crawl spiderName
+    -无日志打印 scrapy crawl spiderName --nolog
+
+
+
+    ----配置文件setting.py
+    -ROBOTSTXT_OBEY robot协议 true遵从协议，若遵从则无法爬取遵从此协议的网址
+    -LOG_LEVEL='ERROR' 只显示error的log信息
