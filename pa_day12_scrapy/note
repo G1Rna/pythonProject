@@ -1,5 +1,6 @@
 
-    -创建工程：scrapy startproject xxx
+    ----创建工程：scrapy startproject xxx
+    -cd xxx
     -在spiders子目录下创建一个爬虫文件: scrapy genspider spiderName www.xxx.com
     -执行工程: scrapy crawl spiderName
     -无日志打印 scrapy crawl spiderName --nolog
@@ -9,3 +10,16 @@
     ----配置文件setting.py
     -ROBOTSTXT_OBEY robot协议 true遵从协议，若遵从则无法爬取遵从此协议的网址
     -LOG_LEVEL='ERROR' 只显示error的log信息
+
+
+    ----持久化存储
+    -基于终端指令的持久化存储
+        return data  (return 解析出的数据)
+        scrapy crawl spiderName -o ./xxx.csv   (只能存储到json,jsonlines,jl,csv,xml,marshal,pickle后缀的文件)
+    -基于管道
+        在item类中定义相关的属性
+        数据存储到item类型的对象中
+        把item类型的对象提交到管道进行持久化存储操作
+        item提交到管道类process_item中进行持久化存储操作
+        在配置文件中开启管道
+
